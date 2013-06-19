@@ -9,8 +9,20 @@ body{
 	padding:10px;
 	margin: 10px;
 }
+.item-filter{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 .item-filter.active{
 	color:#0cf;
+}
+.item-filter.active:hover{
+	text-decoration: none;
+	cursor:default;
 }
 .item-filter:hover{
 	cursor:pointer;

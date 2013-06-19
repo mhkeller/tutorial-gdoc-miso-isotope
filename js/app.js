@@ -35,10 +35,15 @@
 	}
 
 	$('.item-filter').click(function(){
-		$('.item-filter.active').removeClass('active');
-		$(this).addClass('active');
-		var filter_by = $(this).data('filter');
-		$card_container.isotope({filter: filter_by});
+		var is_active = $(this).hasClass('active');
+		if(is_active == false){
+			$('.item-filter.active').removeClass('active');
+			$(this).addClass('active');
+			var filter_by = $(this).data('filter');
+			$card_container.isotope({filter: filter_by});
+		}else{
+			return false
+		}
 	});
 	
 	ds.fetch({ 
