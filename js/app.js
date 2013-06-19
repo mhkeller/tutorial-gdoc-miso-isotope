@@ -11,20 +11,41 @@
 
 	$card_container = $('#card-container');
 
+
 	var formatHelpers = {
 		makeBold: function(text){
 			return '<strong>' + text + '</strong>'
 		}
 	}
+
+	function bakeRows(rows){
+  	_.each(rows, function(val){
+  		_.extend(val, formatHelpers);
+  		var content = templFactory(val);
+  		$card_container.append(content);
+  	});
+	};
+
+	function initIsotope(){
+		$card_container.imagesLoaded( function(){
+			$card_container.isotope({ 
+				item: '.item-row'
+			});
+		});
+	}
+
+	$('.item-filter').click(function(){
+		$('.item-filter.active').removeClass('active');
+		$(this).addClass('active');
+		var filter_by = $(this).data('filter');
+		$card_container.isotope({filter: filter_by});
+	});
 	
 	ds.fetch({ 
 	  success : function() {
 	  	var rows = this.toJSON();
-	  	_.each(rows, function(val){
-	  		_.extend(val, formatHelpers);
-	  		var content = templFactory(val);
-	  		$card_container.append(content);
-	  	});
+	  	bakeRows(rows);
+	  	initIsotope();
 
 	  },
 	  error : function() {

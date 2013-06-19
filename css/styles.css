@@ -1,0 +1,25 @@
+body{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light","Helvetica Neue", Helvetica,sans-serif;
+	font-weight: 300;
+}
+
+.item-row{
+	background-color:#0cf;
+	color:white;
+	padding:10px;
+	margin: 10px;
+}
+.item-filter.active{
+	color:#0cf;
+}
+.item-filter:hover{
+	cursor:pointer;
+	cursor:hand;
+	text-decoration: underline;
+}
+.li-header{
+	list-style:none;
+	font-weight:bold;
+	position:relative;
+	left:-17px;
+}
